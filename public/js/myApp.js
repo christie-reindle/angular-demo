@@ -2,8 +2,14 @@ angular.module('myApp', ['ngRoute'])
   .config ([
     'MoviesProvider',
     '$routeProvider',
-    function(MoviesProvider, $routeProvider) {
+    '$locationProvider',
+    function(MoviesProvider, $routeProvider, $locationProvider) {
       MoviesProvider.setEndPoint('/api/movies');
+
+      $locationProvider.html5Mode({
+        enabled: true,
+        requireBase: false,
+      });
 
       $routeProvider
         .when('/', {
