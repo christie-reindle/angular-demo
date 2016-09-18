@@ -47,8 +47,11 @@
       <button
         ng-click="BookService.addBook({
         title: title,
-        author: author
-        })"
+        author: author,
+        });
+        author='';
+        title='';
+        "
       >
         Add book
       </button>
@@ -63,8 +66,19 @@
         </p>
       </li>
     </ul>
-  </div>
 
+    <b>Movies:</b>
+    <ul class="value_of_movies">
+      <li ng-repeat="movie in movies">
+        <h4>
+          {{ movie.title }}
+        </h4>
+        <p class="movie_year">
+          {{ movie.year }}
+        </p>
+      </li>
+    </ul>
+  </div>
 
   <script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/angularjs/1.5.8/angular.min.js"></script>
   <script type="text/javascript" src="js/myApp.js"></script>
@@ -73,5 +87,6 @@
   <script type="text/javascript" src="js/constants.js"></script>
   <script type="text/javascript" src="js/factories.js"></script>
   <script type="text/javascript" src="js/services.js"></script>
+  <script type="text/javascript" src="js/providers.js"></script>
 </body>
 </html>
