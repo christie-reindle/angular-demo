@@ -25,39 +25,24 @@
       {{ mainCharacter }}
     </div>
     <h5>{{ CharacterVersionFactory }}</h5>
-    <b>Reads: </b>
-    <div class="addBook">
+
+  <b>Reads</b>
+
+    <div>
       <label>
-        Author
+        Find Book
         <input
-          type="text"
-          name="author"
+          type="search"
+          name="bookTitle"
           placeholder="Goosebumps"
-          ng-model="title"
+          ng-model="bookTitleFilterValue"
         >
+        {{bookTitleFilterValue}}
       </label>
-      <label>
-        Title
-        <input
-          type="text"
-          name="title"
-          placeholder="R.L. Stein"
-        >
-      </label>
-      <button
-        ng-click="BookService.addBook({
-        title: title,
-        author: author,
-        });
-        author='';
-        title='';
-        "
-      >
-        Add book
-      </button>
     </div>
+
     <ul class="value_of_books">
-      <li ng-repeat="book in BookService.books">
+      <li ng-repeat="book in BookService.books | filter: {title:bookTitleFilterValue}">
         <h4>
           {{ book.title }}
         </h4>
