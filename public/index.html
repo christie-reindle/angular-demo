@@ -26,21 +26,20 @@
     </div>
     <h5>{{ CharacterVersionFactory }}</h5>
 
-  <b>Reads</b>
-
     <div>
       <label>
-        Find Book
+        Find Book:
         <input
           type="search"
           name="bookTitle"
-          placeholder="Goosebumps"
+          placeholder="Moby Dick"
           ng-model="bookTitleFilterValue"
         >
         {{bookTitleFilterValue}}
       </label>
     </div>
 
+  <b>Books</b>
     <ul class="value_of_books">
       <li ng-repeat="book in BookService.books | filter: {title:bookTitleFilterValue}">
         <h4>
@@ -52,10 +51,22 @@
       </li>
     </ul>
 
+
+    <div>
+      <label>
+        Find Movie:
+        <input
+          type="search"
+          name="movieTitle"
+          placeholder="The Shining"
+          ng-model="MovieTitleFilterValue"
+        >
+        {{MovieTitleFilterValue}}
+      </label>
+    </div>
     <b>Movies:</b>
     <ul class="value_of_movies">
-    {{movies}}
-      <li ng-repeat="movie in movies | beforeYearFilter: 1983 | filter: {title: 'Roundhay'}">
+      <li ng-repeat="movie in movies | beforeYearFilter: 1983 | filter:MovieTitleFilterValue | orderBy:'+year'">
         <h4>
           {{ movie.title }}
         </h4>
