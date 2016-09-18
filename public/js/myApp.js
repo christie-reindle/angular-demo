@@ -1,8 +1,26 @@
-angular.module('myApp', [])
+angular.module('myApp', ['ngRoute'])
   .config ([
     'MoviesProvider',
-    function(MoviesProvider) {
+    '$routeProvider',
+    function(MoviesProvider, $routeProvider) {
       MoviesProvider.setEndPoint('/api/movies');
+
+      $routeProvider
+        .when('/', {
+          templateUrl: 'views/default.html'
+        })
+        .when('/books', {
+          templateUrl: 'views/books.html',
+          controller: 'booksController'
+        })
+        .when('/movies', {
+          templateUrl: 'views/movies.html',
+          controller: 'movieController'
+        })
+        .when('/other', {
+          templateUrl: 'views/other.html',
+          controller: 'myController'
+        });
     }
   ])
   .run([

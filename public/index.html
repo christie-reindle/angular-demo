@@ -5,79 +5,30 @@
   <title>Angular Demo</title>
 
 </head>
-<body ng-app="myApp" ng-controller='myController'>
+<body ng-app="myApp">
   <h1>Intro to Angular</h1>
   <h2>Application Version: {{ APP_VERSION }}</h2>
-  <h3>{{ 'Hello' + ' Angular!' }}</h3>
-  <h4>{{ 2 + 3 }}</h4>
-  <div>
-    <input type="text" ng-model="myModel">
-    <div class="first_name">
-      <b>First name: </b>
-      {{ myFirstName }}
-    </div>
-    <div class="my_model">
-      <b>My model: </b>
-      {{ myModel }}
-    </div>
-    <div class="main_character">
-      <b>Main character: </b>
-      {{ mainCharacter }}
-    </div>
-    <h5>{{ CharacterVersionFactory }}</h5>
-
-    <div>
-      <label>
-        Find Book:
-        <input
-          type="search"
-          name="bookTitle"
-          placeholder="Moby Dick"
-          ng-model="bookTitleFilterValue"
-        >
-        {{bookTitleFilterValue}}
-      </label>
-    </div>
-
-  <b>Books</b>
-    <ul class="value_of_books">
-      <li ng-repeat="book in BookService.books | filter: {title:bookTitleFilterValue}">
-        <h4>
-          {{ book.title }}
-        </h4>
-        <p class="book_author">
-          {{ book.author }}
-        </p>
+  <nav>
+    <ul>
+      <li>
+        <a href="/#/">Home</a>
+      </li>
+      <li>
+        <a href="/#/movies">Movies</a>
+      </li>
+      <li>
+        <a href="/#/books">Books</a>
+      </li>
+      <li>
+        <a href="/#/other">Other</a>
       </li>
     </ul>
+  </nav>
+  <div ng-view></div>
 
-
-    <div>
-      <label>
-        Find Movie:
-        <input
-          type="search"
-          name="movieTitle"
-          placeholder="The Shining"
-          ng-model="MovieTitleFilterValue"
-        >
-        {{MovieTitleFilterValue}}
-      </label>
-    </div>
-    <b>Movies:</b>
-    <ul class="value_of_movies">
-      <li ng-repeat="movie in movies | beforeYearFilter: 1983 | filter:MovieTitleFilterValue | orderBy:'+year'">
-        <h4>
-          {{ movie.title }}
-        </h4>
-        <p class="movie_year">
-          {{ movie.year }}
-        </p>
-      </li>
-    </ul>
-  </div>
 
   <script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/angularjs/1.5.8/angular.min.js"></script>
+  <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/angular.js/1.5.8/angular-route.min.js"></script>
   <script type="text/javascript" src="js/myApp.js"></script>
   <script type="text/javascript" src="js/controllers.js"></script>
   <script type="text/javascript" src="js/values.js"></script>
