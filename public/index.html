@@ -69,7 +69,8 @@
 
     <b>Movies:</b>
     <ul class="value_of_movies">
-      <li ng-repeat="movie in movies">
+    {{movies}}
+      <li ng-repeat="movie in movies | filter: { year: 1980 }">
         <h4>
           {{ movie.title }}
         </h4>
