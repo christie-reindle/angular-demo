@@ -3,21 +3,27 @@
 <head>
   <meta charset="UTF-8">
   <title>Angular Demo</title>
+
+</head>
+<body ng-app="myApp" ng-controller='myController'>
+  <h1>Intro to Angular</h1>
+  <h2>Application Version: {{ APP_VERSION }}</h2>
+  <h3>{{ 'Hello' + ' Angular!' }}</h3>
+  <h4>{{ 2 + 3 }}</h4>
+  <div>
+    <h3>First name: {{ myFirstName }}</h3>
+    <input type="text" ng-model="myModel">
+    <div>My model: {{ myModel }}</div>
+    <h2>Main character: {{ mainCharacter }}</h2>
+  </div>
+  <h5>{{ CharacterVersionFactory }}</h5>
+
   <script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/angularjs/1.5.8/angular.min.js"></script>
   <script type="text/javascript" src="js/myApp.js"></script>
   <script type="text/javascript" src="js/controllers.js"></script>
   <script type="text/javascript" src="js/values.js"></script>
-    <script type="text/javascript" src="js/constants.js"></script>
-</head>
-<body ng-app="myApp" ng-controller='myController'>
-  <h1>{{ 'Hello' + ' Angular!' }}</h1>
-  <h2>{{ 2 + 3 }}</h2>
-  <div>
-    <h3>{{ myFirstName }}</h3>
-    <input type="text" ng-model="myModel">
-    <div>{{ myModel }}</div>
-    <h2>{{ mainCharacter }}</h2>
-  </div>
-  <h4>{{APP_VERSION}}</h4>
+  <script type="text/javascript" src="js/constants.js"></script>
+  <script type="text/javascript" src="js/factories.js"></script>
+  <script type="text/javascript" src="js/services.js"></script>
 </body>
 </html>
