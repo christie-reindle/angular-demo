@@ -7,20 +7,20 @@ function BookService() {
     {
       id: 1,
       title: 'Moby Dick',
-      author: 'Somebody'
+      author: 'Dolphin'
     },
     {
       id: 2,
-      title: 'Apple',
-      author: 'Green'
+      title: 'Dracula',
+      author: 'Van Helsing'
     }
   ];
 }
 
-BookService.prototype.getBooks = function () {
-  return this.books;
-}
-
 BookService.prototype.getBook = function (id) {
   return this.books.find((book) => book.id == id);
+}
+
+BookService.prototype.getBooks = function () {
+  return this.books;
 }
