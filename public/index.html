@@ -24,9 +24,37 @@
       <b>Main character: </b>
       {{ mainCharacter }}
     </div>
-      <b>Reads: </b>
+    <h5>{{ CharacterVersionFactory }}</h5>
+    <b>Reads: </b>
+    <div class="addBook">
+      <label>
+        Author
+        <input
+          type="text"
+          name="author"
+          placeholder="Goosebumps"
+          ng-model="title"
+        >
+      </label>
+      <label>
+        Title
+        <input
+          type="text"
+          name="title"
+          placeholder="R.L. Stein"
+        >
+      </label>
+      <button
+        ng-click="BookService.addBook({
+        title: title,
+        author: author
+        })"
+      >
+        Add book
+      </button>
+    </div>
     <ul class="value_of_books">
-      <li ng-repeat="book in books">
+      <li ng-repeat="book in BookService.books">
         <h4>
           {{ book.title }}
         </h4>
@@ -36,7 +64,7 @@
       </li>
     </ul>
   </div>
-  <h5>{{ CharacterVersionFactory }}</h5>
+
 
   <script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/angularjs/1.5.8/angular.min.js"></script>
   <script type="text/javascript" src="js/myApp.js"></script>
