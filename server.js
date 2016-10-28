@@ -36,6 +36,10 @@ app.get('/api/movies', function(req, res) {
   res.json(movies);
 });
 
+app.get('*', function (req, res) {
+  res.sendFile(`${__dirname}/public/index.html`);
+});
+
 app.listen(PORT, function() {
   console.log(`Listening on port`, PORT);
 });
